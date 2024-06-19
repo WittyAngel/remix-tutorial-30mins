@@ -26,8 +26,6 @@ export const loader = async () => {
 };
 
 export const action = async () => {
-  console.log("root action");
-
   const contact = await createEmptyContact();
   return redirect(`/contacts/${contact.id}/edit`);
   // return json({ contact });
@@ -96,7 +94,7 @@ export default function App() {
 
         <div
           id="detail"
-          className={navigation.state === "loading" ? "loading" : "asdf"}
+          className={navigation.state === "loading" ? "loading" : ""}
         >
           <Outlet />
         </div>

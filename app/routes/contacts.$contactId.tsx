@@ -8,15 +8,13 @@ import type { ContactRecord } from "../data";
 import { getContact } from "../data";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
-  console.log("contact loader");
-
   invariant(params.contactId, "Missing contactId param");
 
   const contact = await getContact(params.contactId);
-
   if (!contact) {
     throw new Response("Not Found", { status: 404 });
   }
+
   return json({ contact });
 };
 
