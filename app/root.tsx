@@ -66,7 +66,10 @@ export default function App() {
             <Form
               id="search-form"
               role="search"
-              onChange={(event) => sumbit(event.currentTarget)}
+              onChange={(event) => {
+                const isFirstSearch = q === null;
+                sumbit(event.currentTarget, { replace: !isFirstSearch });
+              }}
             >
               <input
                 id="q"
